@@ -1,0 +1,84 @@
+﻿@model DIPLOMA.Models.DirectoryClients
+
+@{
+    ViewData["Title"] = Model.FirstName + " " + Model.Patronymic + " " + Model.SecondName + " - Клиент";
+}
+
+<h1 class="mb-5">Детально</h1>
+
+<div>
+    <h4>Клиент <b>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.Patronymic) @Html.DisplayFor(model => model.SecondName)</b></h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Имя
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class = "col-sm-2">
+            Фамилия
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SecondName)
+        </dd>
+        <dt class = "col-sm-2">
+            Отчество
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Patronymic)
+        </dd>
+        <dt class = "col-sm-2">
+            Дата добавления
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ClientDate)
+        </dd>
+        <dt class = "col-sm-2">
+            Серия паспорта
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PassportSerial)
+        </dd>
+        <dt class = "col-sm-2">
+            Номер паспорта
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PassportNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            Адрес регистрации
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AddressRegistration)
+        </dd>
+        <dt class = "col-sm-2">
+            Адрес проживания
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AddressResidential)
+        </dd>
+        <dt class = "col-sm-2">
+            Телефон
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TelephoneNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            Email
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            Данные о месте работы
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataAboutWorkPlace)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.DirectoryClientsID" class="btn btn-secondary">Изменить</a>
+    <a asp-action="Index" class="btn btn-outline-dark">Назад</a>
+</div>

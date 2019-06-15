@@ -1,0 +1,99 @@
+﻿@model DIPLOMA.Models.DirectoryEmployees
+
+@{
+    ViewData["Title"] = Model.FirstName + " " + Model.Patronymic + " " + Model.SecondName + " - Удаление";
+}
+
+<h1 class="mb-5">Удаление</h1>
+
+<h3>Вы действительно хотите удалить данного сотрудника?</h3>
+<div>
+    <h4>Сотрудник <b>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.Patronymic) @Html.DisplayFor(model => model.SecondName)</b></h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SecondName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SecondName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Patronymic)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Patronymic)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PassportSerial)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PassportSerial)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PassportNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PassportNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AddressRegistration)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AddressRegistration)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AddressResidential)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AddressResidential)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaritalStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaritalStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TelephoneNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TelephoneNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Education)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Education)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmployeeDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmployeeDate)
+        </dd>
+        <dt class="col-sm-2">
+            Служба
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DirectoryServices.Service)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="DirectoryEmployeesID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

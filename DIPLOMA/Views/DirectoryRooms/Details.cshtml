@@ -1,0 +1,48 @@
+﻿@model DIPLOMA.Models.DirectoryRooms
+
+@{
+    ViewData["Title"] = Model.NumberRoom + " " + Model.DirectoryTypeRooms + " " + Model.DirectoryCategoryRooms + " - Номер";
+}
+
+<h1 class="mb-5">Детально</h1>
+
+<div>
+    <h4>Номер <b>@Html.DisplayFor(model => model.NumberRoom) @Html.DisplayFor(model => model.DirectoryTypeRooms) @Html.DisplayFor(model => model.DirectoryCategoryRooms)</b></h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CostPerDay)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CostPerDay)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumberRoom)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumberRoom)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DirectoryTypeRoomsID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DirectoryTypeRooms.TypeRoom)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DirectoryCategoryRoomsID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DirectoryCategoryRooms.CategoryRoom)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DirectoryStatusRoomsID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DirectoryStatusRooms.StatusRoom)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.DirectoryRoomsID" class="btn btn-secondary">Изменить</a>
+    <a asp-action="Index" class="btn btn-outline-dark">Назад</a>
+</div>

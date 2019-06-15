@@ -1,0 +1,27 @@
+﻿@model DIPLOMA.Models.DirectoryServices
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="mb-5">Удаление</h1>
+
+<h3>Вы действительно хотите удалить данную службу?</h3>
+<div>
+    <h4>Служба <b>@Html.DisplayFor(model => model.Service)</b></h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Service)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="DirectoryServicesID" />
+        <input type="submit" value="Удалить" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-outline-dark">Назад</a>
+    </form>
+</div>

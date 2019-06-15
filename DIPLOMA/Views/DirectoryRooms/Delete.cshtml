@@ -1,0 +1,55 @@
+﻿@model DIPLOMA.Models.DirectoryRooms
+
+@{
+    ViewData["Title"] = Model.NumberRoom + " " + Model.DirectoryTypeRooms + " " + Model.DirectoryCategoryRooms + " - Удаление";
+}
+
+<h1 class="mb-5">Удаление</h1>
+
+
+<h3>Вы действительно хотите удалить данный номер?</h3>
+<div>
+    <h4>Номер <b>
+    @Html.DisplayFor(model => model.NumberRoom)
+    @Html.DisplayFor(model => model.DirectoryTypeRooms.TypeRoom) @Html.DisplayFor(model => model.DirectoryCategoryRooms.CategoryRoom)
+</b></h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CostPerDay)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CostPerDay)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NumberRoom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumberRoom)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DirectoryTypeRoomsID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DirectoryTypeRooms.TypeRoom)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DirectoryCategoryRoomsID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DirectoryCategoryRooms.CategoryRoom)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DirectoryStatusRoomsID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DirectoryStatusRooms.StatusRoom)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="DirectoryRoomsID" />
+        <input type="submit" value="Удалить" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-outline-dark">Назад</a>
+    </form>
+</div>

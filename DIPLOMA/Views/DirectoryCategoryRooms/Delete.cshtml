@@ -1,0 +1,27 @@
+﻿@model DIPLOMA.Models.DirectoryCategoryRooms
+
+@{
+    ViewData["Title"] = Model.CategoryRoom + " - Удаление";
+}
+
+<h1 class="mb-5">Удаление</h1>
+
+<h3>Вы действительно хотите удалить данную категорию номеров?</h3>
+<div>
+    <h4>Клиент <b>@Html.DisplayFor(model => model.CategoryRoom)</b></h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CategoryRoom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CategoryRoom)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="DirectoryCategoryRoomsID" />
+        <input type="submit" value="Удалить" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-outline-dark">Назад</a>
+    </form>
+</div>

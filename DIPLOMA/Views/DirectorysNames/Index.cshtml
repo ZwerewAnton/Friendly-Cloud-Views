@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Справочники";
+}
+<body class="m-0 p-0">
+
+    <div class="bg-primary m-0 p-3 text-white"><h4>Справочники</h4></div>
+
+    <div class="mt-3 pt-3 mb-3 ">
+        <div class="row mb-3 directorys">
+            <a asp-controller="DirectoryClients" asp-action="Index" class="flex-fill btn btn-secondary ml-3 mr-3">Клиенты</a>
+            <a asp-controller="DirectoryEmployees" asp-action="Index" class="flex-fill btn btn-secondary mr-3">Сотрудники</a>
+            <a asp-controller="DirectoryServices" asp-action="Index" class="flex-fill btn btn-secondary mr-3">Службы</a>
+        </div>
+        <div class="row directorys">
+            <a asp-controller="DirectoryCategoryRooms" asp-action="Index" class="flex-fill btn btn-secondary ml-3 mr-3">Категории номеров</a>
+            <a asp-controller="DirectoryTypeRooms" asp-action="Index" class="flex-fill btn btn-secondary mr-3">Виды номеров</a>
+            <a asp-controller="DirectoryRooms" asp-action="Index" class="flex-fill btn btn-secondary mr-3">Номера</a>
+        </div>
+    </div>
+</body>
+<script src="~/js/site.js" asp-append-version="true"></script>

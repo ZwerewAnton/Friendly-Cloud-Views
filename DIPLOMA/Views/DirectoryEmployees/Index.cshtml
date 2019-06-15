@@ -1,0 +1,255 @@
+﻿@model PaginatedList<DIPLOMA.Models.DirectoryEmployees>
+
+@{
+    ViewData["Title"] = "Сотрудники";
+}
+
+<h1>Сотрудники</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Добавить</a>
+</p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Имя/Фамилия: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+            <input type="submit" value="Поиск" class="btn btn-light" />
+            <a asp-action="Index" class="btn btn-default">Полный список</a>
+        </p>
+    </div>
+</form>
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Назад
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Вперед
+</a>
+
+
+<div class="table_scroll overflow-auto">
+    <table class="table">
+        <thead>
+            <tr>
+                @*<th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["FirstName"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Имя</a>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SecondName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Patronymic)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PassportSerial)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PassportNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AddressRegistration)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AddressResidential)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaritalStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TelephoneNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Education)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmployeeDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DirectoryServices)
+                </th>*@
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SecondName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Patronymic)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PassportSerial)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PassportNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AddressRegistration)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AddressResidential)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaritalStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TelephoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Education)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DirectoryServices.Service)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.DirectoryEmployeesID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.DirectoryEmployeesID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.DirectoryEmployeesID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Назад
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Вперед
+</a>
+
+
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SecondName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Patronymic)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PassportSerial)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PassportNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AddressRegistration)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AddressResidential)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaritalStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TelephoneNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Education)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmployeeDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DirectoryServices)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SecondName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Patronymic)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PassportSerial)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PassportNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AddressRegistration)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AddressResidential)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaritalStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TelephoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Education)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DirectoryServices.Service)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.DirectoryEmployeesID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.DirectoryEmployeesID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.DirectoryEmployeesID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>*@

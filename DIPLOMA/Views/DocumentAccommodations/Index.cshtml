@@ -1,0 +1,157 @@
+﻿
+@model IEnumerable<DIPLOMA.Models.DocumentAccommodation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateAccommodation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateEviction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfPersons)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecondName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patronymic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassportSerial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassportNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressRegistration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressResidential)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelephoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataAboutWorkPlace)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberRoom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CostPerDay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CostTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Payment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DirectoryStatusBooking)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DirectoryTypeRooms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DirectoryCategoryRooms)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateAccommodation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateEviction)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfPersons)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SecondName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Patronymic)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PassportSerial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PassportNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddressRegistration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddressResidential)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TelephoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataAboutWorkPlace)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClientDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberRoom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CostPerDay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CostTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Payment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DirectoryStatusBooking.StatusAccommodation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DirectoryTypeRooms.TypeRoom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DirectoryCategoryRooms.CategoryRoom)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.DocumentAccommodationID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.DocumentAccommodationID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.DocumentAccommodationID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

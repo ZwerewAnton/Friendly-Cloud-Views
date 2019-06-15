@@ -1,0 +1,107 @@
+﻿@model PaginatedList<DIPLOMA.Models.DirectoryRooms>
+
+@{
+    ViewData["Title"] = "Номера";
+}
+
+<h1>Номера</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Добавить</a>
+</p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Номер: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+            <input type="submit" value="Поиск" class="btn btn-light" />
+            <a asp-action="Index" class="btn btn-default">Полный список</a>
+        </p>
+    </div>
+</form>
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Назад
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Вперед
+</a>
+
+<div class="table_scroll overflow-auto">
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["CostPerDay"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Цена за день</a>
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["NumberRoom"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Номер комнаты</a>
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["TypeRoom"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Тип номера
+                </th></a>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["CategoryRoom"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Категория</a>
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["StatusRoom"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Статус</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.DirectoryRoomsID" class="btn btn-info col-12 mb-1">Детально</a>
+                        <a asp-action="Edit" asp-route-id="@item.DirectoryRoomsID" class="btn btn-secondary col-12 mb-1">Изменить</a>
+                        <a asp-action="Delete" asp-route-id="@item.DirectoryRoomsID" class="btn btn-danger col-12">Удалить</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CostPerDay)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumberRoom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DirectoryTypeRooms.TypeRoom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DirectoryCategoryRooms.CategoryRoom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DirectoryStatusRooms.StatusRoom)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Назад
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Вперед
+</a>

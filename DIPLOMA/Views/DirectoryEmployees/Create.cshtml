@@ -1,0 +1,90 @@
+﻿@model DIPLOMA.Models.DirectoryEmployees
+
+@{
+    ViewData["Title"] = "Создание - Сотрудники";
+}
+
+<h1 class="mb-5">Создание</h1>
+
+<h4>Сотрудник</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label">Имя</label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SecondName" class="control-label">Фамилия</label>
+                <input asp-for="SecondName" class="form-control" />
+                <span asp-validation-for="SecondName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patronymic" class="control-label">Отчество</label>
+                <input asp-for="Patronymic" class="form-control" />
+                <span asp-validation-for="Patronymic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PassportSerial" class="control-label">Серия паспорта</label>
+                <input asp-for="PassportSerial" class="form-control" />
+                <span asp-validation-for="PassportSerial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PassportNumber" class="control-label">Номер паспорта</label>
+                <input asp-for="PassportNumber" class="form-control" />
+                <span asp-validation-for="PassportNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddressRegistration" class="control-label">Адрес регистрации</label>
+                <input asp-for="AddressRegistration" class="form-control" />
+                <span asp-validation-for="AddressRegistration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddressResidential" class="control-label">Адрес проживания</label>
+                <input asp-for="AddressResidential" class="form-control" />
+                <span asp-validation-for="AddressResidential" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="MaritalStatus" /> @Html.DisplayNameFor(model => model.MaritalStatus)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="TelephoneNumber" class="control-label"></label>
+                <input asp-for="TelephoneNumber" class="form-control" />
+                <span asp-validation-for="TelephoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Education" class="control-label"></label>
+                <input asp-for="Education" class="form-control" />
+                <span asp-validation-for="Education" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DirectoryServicesID" class="control-label"></label>
+                <select asp-for="DirectoryServicesID" class="form-control" asp-items="ViewBag.DirectoryServicesID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeDate" class="control-label"></label>
+                <input asp-for="EmployeeDate" class="form-control" />
+                <span asp-validation-for="EmployeeDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-outline-dark">Назад</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
